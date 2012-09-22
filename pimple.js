@@ -11,12 +11,13 @@ var NotACallbackError, Pimple,
 Pimple = (function() {
 
   function Pimple(values) {
-    var key, value, _i, _len;
+    var key, value;
     if (values == null) {
       values = {};
     }
-    for (value = _i = 0, _len = values.length; _i < _len; value = ++_i) {
-      key = values[value];
+    this._values = {};
+    for (key in values) {
+      value = values[key];
       this.set(key, value);
     }
   }
@@ -24,6 +25,15 @@ Pimple = (function() {
   Pimple.prototype.set = function(key, value) {
     var result,
       _this = this;
+    if (key == null) {
+      key = null;
+    }
+    if (value == null) {
+      value = null;
+    }
+    if (key === null) {
+      return;
+    }
     result = null;
     if (this._isFunction(value)) {
       result = function() {
@@ -38,6 +48,9 @@ Pimple = (function() {
 
   Pimple.prototype._defineGetter = function(key) {
     var _this = this;
+    if (this[key] != null) {
+      return;
+    }
     return Object.defineProperty(this, key, {
       get: function(x) {
         return _this.get(key);

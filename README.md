@@ -26,3 +26,26 @@ or initialise the container with values
 var pimple = new Pimple({'greet':function(){return "hi"},'color':'green'})
 ```
 
+#### define a service
+
+```javascript
+// Pimple.set(name,callback)
+// given a Database object
+pimple.set('databasse',function (pimple) {
+    return new Database(pimple.get('connection_string'));
+});
+
+// on recent browsers , you can use accessors ( IE9+,CHROME,FIREFOX,OPERA,SAFARI )
+pimple.set('database',function (pimple) {
+    return new Database(pimple.connection_string);
+});
+// or just set a scalar value
+pimple.set('color',"green");
+```
+
+### query for a service
+
+```javascript
+pimple.get('service')
+//or on recent browsers
+pimple.service

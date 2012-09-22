@@ -8,10 +8,12 @@
 
 class Pimple
   constructor:(values={})->
-    for key,value in values
+    @_values={}
+    for key,value of values
       @set(key,value)
-      
-  set:(key,value)->
+
+  set:(key=null,value=null)->
+    if key==null then return
     result=null
     if @_isFunction(value)
       result=()=>
@@ -23,6 +25,7 @@ class Pimple
     return 
 
   _defineGetter:(key)->
+    if @[key]? then return 
     Object.defineProperty(this,key,{
       get:(x)=>
         return @get(key)
