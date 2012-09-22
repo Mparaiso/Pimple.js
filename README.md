@@ -37,7 +37,7 @@ pimple.set('database',function (pimple /* pimple is injected in the function */ 
 });
 
 // on recent browsers , you can use accessors ( IE9+,CHROME,FIREFOX,OPERA,SAFARI )
-pimple.set('database',function (pimple) {
+pimple.set('database',function (pimple /* pimple is injected in the function */ ) {
     return new Database(pimple.connection_string);
 });
 // or just set a scalar value
@@ -59,7 +59,7 @@ pimple.service
 the service callback with be exectuted only once and the result will be shared for each call
 ```javascript
 // Pimple.share(name,callback)
-pimple.share('car',function (pimple) {
+pimple.share('car',function (pimple /* pimple is injected in the function */ ) {
     return {
       engine:"x",
       color:"red"
