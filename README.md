@@ -27,6 +27,7 @@ var pimple = new Pimple({'greet':function(){return "hi"},'color':'green'})
 ```
 
 #### define a service
+you define a service with an anonymous function
 
 ```javascript
 // Pimple.set(name,callback)
@@ -47,5 +48,23 @@ pimple.set('color',"green");
 
 ```javascript
 pimple.get('service')
-//or on recent browsers
+//or on recent browsers support defineProperty  ( IE9+,CHROME,FIREFOX,OPERA,SAFARI )
 pimple.service
+```
+
+### define a shared service 
+
+the service callback with be exectuted only once
+```javascript
+// Pimple.share(name,callback)
+// given a Router object
+pimple.share('car',function (pimple) {
+    return {
+      engine:"x",
+      color:"red"
+    }
+});
+var car = pimple.get('car'); // or car = pimple.car on recent browsers supporting accessors
+car.color = 'green'
+console.log(pimple.get(car).color) // returns green
+```
