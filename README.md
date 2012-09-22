@@ -78,4 +78,5 @@ pimple.protect('sayHi',function (pimple) {
       return alert('Hi');
     }
 });
+pimple.get('sayHi')(); // alerts Hi
 ```
