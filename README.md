@@ -53,6 +53,7 @@ since the service is wrapped into a function , it will be lazy-loaded , allowing
 pimple.get('service')
 //or on recent browsers support defineProperty  ( IE9+,CHROME,FIREFOX,OPERA,SAFARI )
 pimple.service
+pimple['service']
 ```
 
 #### define a shared service 
