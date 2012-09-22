@@ -1,7 +1,7 @@
 #PIMPLE.JS
 
-### Pimple is a <a href="http://en.wikipedia.org/wiki/Dependency_injection">Dependency Injection Container</a>
- for javascript , compatible with all javascript enabled browsers.
+### Pimple is a  for javascript , compatible with all javascript enabled browsers.
+see : http://en.wikipedia.org/wiki/Dependency_injection">
 
 ### author M.Paraiso , inspired by Pimple by Fabien Potencier : https://github.com/fabpot/Pimple
 
