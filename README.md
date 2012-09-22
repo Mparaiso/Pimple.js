@@ -54,10 +54,9 @@ pimple.service
 
 ### define a shared service 
 
-the service callback with be exectuted only once
+the service callback with be exectuted only once and the result will be shared for each call
 ```javascript
 // Pimple.share(name,callback)
-// given a Router object
 pimple.share('car',function (pimple) {
     return {
       engine:"x",
@@ -67,4 +66,14 @@ pimple.share('car',function (pimple) {
 var car = pimple.get('car'); // or car = pimple.car on recent browsers supporting accessors
 car.color = 'green'
 console.log(pimple.get(car).color) // returns green
+```
+### define a protected service
+
+```javascript
+//Pimple.protect(name,callback)
+pimple.protect('sayHi',function (pimple) {
+    return function(){
+      return alert('Hi');
+    }
+});
 ```
