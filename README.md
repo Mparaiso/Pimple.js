@@ -44,7 +44,7 @@ pimple.set('database',function (pimple) {
 pimple.set('color',"green");
 ```
 
-### query for a service
+#### query for a service
 
 since the service is wrapped into a function , it will be lazy-loaded , allowing to save computer CPU.
 
@@ -54,7 +54,7 @@ pimple.get('service')
 pimple.service
 ```
 
-### define a shared service 
+#### define a shared service 
 
 the service callback with be exectuted only once and the result will be shared for each call
 ```javascript
@@ -69,7 +69,7 @@ var car = pimple.get('car'); // or car = pimple.car on recent browsers supportin
 car.color = 'green'
 console.log(pimple.get(car).color) // returns green
 ```
-### define a protected service
+#### define a protected service
 
 ```javascript
 //Pimple.protect(name,callback)
