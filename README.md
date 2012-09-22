@@ -46,6 +46,8 @@ pimple.set('color',"green");
 
 ### query for a service
 
+since the service is wrapped into a function , it will be lazy-loaded , allowing to save computer CPU.
+
 ```javascript
 pimple.get('service')
 //or on recent browsers support defineProperty  ( IE9+,CHROME,FIREFOX,OPERA,SAFARI )
