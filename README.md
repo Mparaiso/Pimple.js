@@ -32,7 +32,7 @@ you define a service with an anonymous function
 ```javascript
 // Pimple.set(name,callback)
 // given a Database object
-pimple.set('databasse',function (pimple) {
+pimple.set('database',function (pimple /* pimple is injected in the function */ ) {
     return new Database(pimple.get('connection_string'));
 });
 
@@ -73,10 +73,8 @@ console.log(pimple.get(car).color) // returns green
 
 ```javascript
 //Pimple.protect(name,callback)
-pimple.protect('sayHi',function (pimple) {
-    return function(){
+pimple.protect('sayHi',function(){
       return alert('Hi');
-    }
 });
 pimple.get('sayHi')(); // alerts Hi
 ```
