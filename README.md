@@ -5,6 +5,8 @@ see : http://en.wikipedia.org/wiki/Dependency_injection
 
 ### author M.Paraiso , inspired by Pimple by Fabien Potencier : https://github.com/fabpot/Pimple
 
+#### contact: mparaiso@free.Fr
+
 ### status: beta
 
 ## USAGE
