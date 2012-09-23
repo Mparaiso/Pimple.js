@@ -41,7 +41,10 @@ pimple.set('database',function (pimple /* pimple is injected in the function */ 
 pimple.set('database',function (pimple /* pimple is injected in the function */ ) {
     return new Database(pimple.connection_string);
 });
-// or just set a scalar value
+```
+### define a paramater
+```javascript
+// just set a scalar value
 pimple.set('color',"green");
 ```
 
@@ -69,7 +72,7 @@ pimple.share('car',function (pimple /* pimple is injected in the function */ ) {
 });
 var car = pimple.get('car'); // or car = pimple.car on recent browsers supporting accessors
 car.color = 'green'
-console.log(pimple.get(car).color) // returns green
+console.log(pimple.get("car").color) // returns green
 ```
 #### define a protected service
 
@@ -79,4 +82,27 @@ pimple.protect('sayHi',function(){
       return alert('Hi');
 });
 pimple.get('sayHi')(); // alerts Hi
+```
+
+#### extends a defined service
+
+```javascript
+// define a service ajax_service
+pimple.set("ajax",function(pimple){
+  return new Ajax({method:'GET'});
+});
+//Pimple.extend(existing_service_name,callback)
+pimple.set('ajax',pimple.extend('ajax',function(ajax,pimple){
+  ajax.method = "PUT";
+  return ajax;
+}));
+```
+
+### get the service raw definition
+
+```javascript
+pimple.set('service',funtion(pimple){
+  new Service();
+})
+pimple.raw('service') // return the  service callback definition
 ```
