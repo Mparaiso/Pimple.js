@@ -86,6 +86,8 @@ pimple.get('sayHi')(); // alerts Hi
 
 #### extends a defined service
 
+Pimple.extend returns a service definition ( a callback ).
+
 ```javascript
 // define a service ajax_service
 pimple.set("ajax",function(pimple){
@@ -100,9 +102,12 @@ pimple.set('ajax',pimple.extend('ajax',function(ajax,pimple){
 
 #### get the service raw definition
 
+Pimple.raw returns the original service defintion ( a scalar or a callback )
+
 ```javascript
 pimple.set('service',funtion(pimple){
   new Service();
 })
+//Pimple.raw(service_name)
 pimple.raw('service') // return the  service callback definition
 ```

@@ -1,11 +1,7 @@
 ###
-  service container
+  Pimple dependency injection container 
+  copyright 2011 M.PARAISO 
 ###
-# if(typeof Object.defineProperty == 'function')
-#   class _PimpleBase
-# else 
-#   throw new Error("Pimple is not compatible with your browser")
-
 class Pimple
   ### create a new container ###
   constructor:(values={})->
@@ -70,8 +66,11 @@ class Pimple
   ### extends a service definition ###
   extend:(key,callback)->
     definition = @raw(key)
-    return =>
-      callback(definition(this),this)
+    if @_isFunction(definition)
+      return =>
+        callback(definition(this),this)
+    else
+      @_throwNotCallbackError()
     
   _throwNotCallbackError:->
     throw new NotACallbackError()
