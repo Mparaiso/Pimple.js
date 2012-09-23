@@ -98,7 +98,7 @@ pimple.set('ajax',pimple.extend('ajax',function(ajax,pimple){
 }));
 ```
 
-### get the service raw definition
+#### get the service raw definition
 
 ```javascript
 pimple.set('service',funtion(pimple){
