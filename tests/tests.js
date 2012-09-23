@@ -81,3 +81,28 @@ test("Pimple.protect",function(){
   throws(function(){_this.pimple.protect('error',"error");},"throws an error : cant use protect with a scalar");
 });
 
+test("Pimple.raw",function(){
+  this.pimple.set('image',function(pimple){
+    return new Image();
+  });
+  this.pimple.set('scalar',"hello");
+  ok(this.pimple.raw("image") instanceof Function);
+  ok(this.pimple.raw('scalar')==="hello");
+});
+
+test("Pimple.extend",function(){
+  this.pimple.set('engine',function(){
+    return {engine:"diesel"};
+  });
+  this.pimple.set("car",function(){
+    return {color:'blue',seats:'4',engine:'oil'};
+  });
+  this.pimple.set('car',this.pimple.extend("car",function(car,pimple){
+    car.color = 'red';
+    car.engine = pimple.get('engine').engine;
+    return car;
+  }));
+  ok(this.pimple.get("car").color==="red","object definition extended");
+  ok(this.pimple.get('car').engine==="diesel","pimple container injected properly");
+});
+

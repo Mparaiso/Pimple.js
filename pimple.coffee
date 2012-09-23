@@ -7,11 +7,12 @@
 #   throw new Error("Pimple is not compatible with your browser")
 
 class Pimple
+  ### create a new container ###
   constructor:(values={})->
     @_values={}
     for key,value of values
       @set(key,value)
-
+  ### define a service or a parameter ###
   set:(key=null,value=null)->
     if key==null then return
     result=null
@@ -23,25 +24,25 @@ class Pimple
     @_values[key]=result
     @_defineGetter(key)
     return 
-
+  ### define accessor ####
   _defineGetter:(key)->
     if @[key]? then return 
     Object.defineProperty(this,key,{
       get:(x)=>
         return @get(key)
     })
-
+  ### test if a value is a function ###
   _isFunction:(value)->
 
     return typeof value == 'function' and value instanceof Function
-
+  ### access a service or a parameter ###
   get:(key)->
     value = this._values[key]
     if @_isFunction(value)
       return value(this)
     else
       return value
-  
+  ### define a shared service ###
   share:(key,callback)->
     _object = null
     if @_isFunction(callback)
@@ -54,11 +55,11 @@ class Pimple
       )
     else
       @_throwNotCallbackError()
-
+  ### return the function definition of the service ###
   raw:(key)->
-    if @_values.key?
-      return this['_values'][key]
-
+    if @_values[key]?
+      return @_values[key]
+  ### protect a function ###
   protect:(key,callback)->
     if @_isFunction callback
       @set(key,->
@@ -66,7 +67,12 @@ class Pimple
       )
     else
       @_throwNotCallbackError()
-
+  ### extends a service definition ###
+  extend:(key,callback)->
+    definition = @raw(key)
+    return =>
+      callback(definition(this),this)
+    
   _throwNotCallbackError:->
     throw new NotACallbackError()
 

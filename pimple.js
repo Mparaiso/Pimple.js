@@ -9,6 +9,8 @@ var NotACallbackError, Pimple,
   __slice = [].slice;
 
 Pimple = (function() {
+  /* create a new container
+  */
 
   function Pimple(values) {
     var key, value;
@@ -21,6 +23,10 @@ Pimple = (function() {
       this.set(key, value);
     }
   }
+
+  /* define a service or a parameter
+  */
+
 
   Pimple.prototype.set = function(key, value) {
     var result,
@@ -46,6 +52,10 @@ Pimple = (function() {
     this._defineGetter(key);
   };
 
+  /* define accessor
+  */
+
+
   Pimple.prototype._defineGetter = function(key) {
     var _this = this;
     if (this[key] != null) {
@@ -58,9 +68,17 @@ Pimple = (function() {
     });
   };
 
+  /* test if a value is a function
+  */
+
+
   Pimple.prototype._isFunction = function(value) {
     return typeof value === 'function' && value instanceof Function;
   };
+
+  /* access a service or a parameter
+  */
+
 
   Pimple.prototype.get = function(key) {
     var value;
@@ -71,6 +89,10 @@ Pimple = (function() {
       return value;
     }
   };
+
+  /* define a shared service
+  */
+
 
   Pimple.prototype.share = function(key, callback) {
     var _object,
@@ -90,11 +112,19 @@ Pimple = (function() {
     }
   };
 
+  /* return the function definition of the service
+  */
+
+
   Pimple.prototype.raw = function(key) {
-    if (this._values.key != null) {
-      return this['_values'][key];
+    if (this._values[key] != null) {
+      return this._values[key];
     }
   };
+
+  /* protect a function
+  */
+
 
   Pimple.prototype.protect = function(key, callback) {
     if (this._isFunction(callback)) {
@@ -104,6 +134,19 @@ Pimple = (function() {
     } else {
       return this._throwNotCallbackError();
     }
+  };
+
+  /* extends a service definition
+  */
+
+
+  Pimple.prototype.extend = function(key, callback) {
+    var definition,
+      _this = this;
+    definition = this.raw(key);
+    return function() {
+      return callback(definition(_this), _this);
+    };
   };
 
   Pimple.prototype._throwNotCallbackError = function() {
