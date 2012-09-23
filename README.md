@@ -105,7 +105,7 @@ pimple.set('ajax',pimple.extend('ajax',function(ajax,pimple){
 Pimple.raw returns the original service defintion ( a scalar or a callback )
 
 ```javascript
-pimple.set('service',funtion(pimple){
+pimple.set('service',function(pimple){
   new Service();
 })
 //Pimple.raw(service_name)
