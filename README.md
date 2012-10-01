@@ -9,6 +9,9 @@ see : http://en.wikipedia.org/wiki/Dependency_injection
 
 ### status: beta
 
+### features:
++ AMD compatible
+
 ## USAGE
 
 ### installation 
