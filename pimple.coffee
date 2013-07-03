@@ -91,5 +91,14 @@ if define? and exports?
   define ->
     return Pimple
 
+else if module?.exports?
+    module.exports = Pimple
+    return
+else
+    @Pimple = Pimple
+
+
+
+
 
 
