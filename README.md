@@ -116,3 +116,6 @@ pimple.set('service',function(pimple){
 //Pimple.raw(service_name)
 pimple.raw('service') // return the  service callback definition
 ```
+
+CHANGE LOG
+0.0.2 register method added

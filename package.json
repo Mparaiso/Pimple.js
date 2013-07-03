@@ -1,7 +1,7 @@
 {
     "name":"pimple",
     "description":"Dependency Injection container for javascript",
-    "version":"0.0.1",
+    "version":"0.0.2",
     "author":{
         "name":"mparaiso",
         "email":"mparaiso@online.fr"

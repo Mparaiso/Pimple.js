@@ -75,6 +75,12 @@ Pimple = do->
       
     _throwNotCallbackError:->
       throw new NotACallbackError()
+    ### register a service provider ###
+    register:(provider,definitions=[])->
+        provider(this)
+        for key,value of definitions
+            @set(key,value)
+        return this
 
   class NotACallbackError extends Error
     constructor:(rest...)->
