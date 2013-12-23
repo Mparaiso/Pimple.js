@@ -100,7 +100,10 @@
             return definition.bind(this,this.get(key),this);
         }
     };
-
+    if(this.define instanceof Function){
+        var self=this;
+        this.define('pimple',[],function(){return self.Pimple});
+    }
     //CommonJS
     if(module && module.exports){
         module.exports = this.Pimple;

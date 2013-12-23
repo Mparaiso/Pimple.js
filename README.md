@@ -1,16 +1,21 @@
-#PIMPLE.JS
+PIMPLE.JS
+=========
 
-### Pimple is a Dependency injection container for javascript , compatible with all javascript enabled browsers.
+#### Pimple is a Dependency injection container for javascript , compatible with all javascript enabled browsers.
 see : http://en.wikipedia.org/wiki/Dependency_injection
 
-### author M.Paraiso , inspired by Pimple by Fabien Potencier : https://github.com/fabpot/Pimple
+author M.Paraiso , inspired by Pimple by Fabien Potencier : https://github.com/fabpot/Pimple
 
-#### contact: mparaiso@free.Fr
+contact: mparaiso@free.Fr
 
-### status: beta
+#### status: beta
 
-### features:
+#### features:
 + AMD compatible
+
+#### change log
+0.0.3 api changed for shared,protected and extended services , see README.md
+0.0.2 register method added
 
 ## USAGE
 
@@ -119,5 +124,4 @@ pimple.set('service',function(pimple){
 pimple.raw('service') // return the  service callback definition
 ```
 
-CHANGE LOG
-0.0.2 register method added
+
