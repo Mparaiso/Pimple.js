@@ -6,7 +6,7 @@ install:
 commit:
 	@git add .
 	@git commit -am"auto-commit `date`" || :
-push: commit
+push: build commit
 	@git push github --all
 build:
 	@uglifyjs pimple.js -o pimple.min.js --source-map pimple.js.map --comments
