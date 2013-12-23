@@ -57,4 +57,10 @@ describe('Pimple',function(){
         assert.equal(container.params.param1,1);
         assert.equal(container.param3,3);
     });
+    it('should support definition registration',function(){
+        container.register(function(container){
+            container.set('param4',4);
+        });
+        assert.equal(container.param4,4);
+    });
 });
