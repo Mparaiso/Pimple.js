@@ -50,7 +50,8 @@
                     get:function(){
                         return this.get(key);
                     },
-                    configurable:true
+                    configurable:true,
+                    enumerable:true
                 });
             }
         },
