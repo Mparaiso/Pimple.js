@@ -49,7 +49,8 @@
                 Object.defineProperty(this,key,{
                     get:function(){
                         return this.get.call(this,key);
-                    }
+                    },
+                    configurable:true
                 });
             }
         },
@@ -85,6 +86,14 @@
             return function(){
                 return definition.bind(context);
             }
+        },
+        /**
+         * @param {String} key
+         * @param {Function} definition
+         * @returns {Function}
+         */
+        extend:function(key,definition){
+            return definition.bind(this,this.get(key),this);
         }
     };
 

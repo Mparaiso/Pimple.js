@@ -42,4 +42,20 @@ describe('Pimple',function(){
         assert.ok(container.protected instanceof Function);
         assert.equal(container.protected(),definitions.param);
     });
+    it(('should support definition extension'),function(){
+        container.set('params',function(){
+            return {
+                param1:1
+            }
+        });
+        container.set('params',container.extend('params',function(params,container){
+            params.param2=2;
+            container.set('param3',3);
+            return params;
+        }));
+        assert.equal(container.params.param2,2);
+        assert.equal(container.params.param1,1);
+        assert.equal(container.param3,3);
+
+    });
 });
