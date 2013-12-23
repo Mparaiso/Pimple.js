@@ -12,7 +12,8 @@
         "dependency injection"
     ],
     "devDependencies":{
-        "jsmin":"*"
+        "mocha":"*",
+        "uglify-js":"*"
     },
     "repository":{
         "type":"git",
