@@ -48,7 +48,7 @@
             if(reservedProperties.indexOf(key)===-1){
                 Object.defineProperty(this,key,{
                     get:function(){
-                        return this.get.call(this,key);
+                        return this.get(key);
                     },
                     configurable:true
                 });
