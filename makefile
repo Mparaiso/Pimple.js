@@ -9,5 +9,5 @@ commit:
 push: commit
 	@git push origin --all
 build:
-	@jsmin pimple.js > pimple.min.js
+	@uglifyjs pimple.js -o pimple.min.js --source-map pimple.js.map --comments
 .PHONY:test

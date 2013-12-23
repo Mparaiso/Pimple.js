@@ -1,10 +1,13 @@
 /*global String,Boolean,Object,Function */
 /*
   Pimple dependency injection container 
-  copyright 2011 M.PARAISO
+  @copyright 2011 M.PARAISO <mparaiso@online.fr>
+  @license LGPL
+  @version 0.0.3
 */
 (function(){
     /**
+     * Pimple dependency injection container
      * @param {Object} object
      * @return {Boolean}
      */
