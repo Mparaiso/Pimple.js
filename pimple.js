@@ -98,6 +98,14 @@
          */
         extend:function(key,definition){
             return definition.bind(this,this.get(key),this);
+        },
+        /**
+         * use a function to register a set of definitions
+         * @param {Function} definitionProvider
+         * @returns {*}
+         */
+        register:function(definitionProvider){
+            return definitionProvider(this);
         }
     };
     if(this.define instanceof Function){

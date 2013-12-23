@@ -56,6 +56,5 @@ describe('Pimple',function(){
         assert.equal(container.params.param2,2);
         assert.equal(container.params.param1,1);
         assert.equal(container.param3,3);
-        console.log(container);
     });
 });
