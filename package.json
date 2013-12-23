@@ -1,7 +1,7 @@
 {
     "name":"pimple",
     "description":"Dependency Injection container for javascript",
-    "version":"0.0.2",
+    "version":"0.0.3",
     "author":{
         "name":"mparaiso",
         "email":"mparaiso@online.fr"
@@ -11,6 +11,9 @@
         "ioc",
         "dependency injection"
     ],
+    "devDependencies":{
+        "mocha":"*"
+    },
     "repository":{
         "type":"git",
         "url":"https://github.com/Mparaiso/Pimple.js"
