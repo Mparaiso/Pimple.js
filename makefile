@@ -9,5 +9,5 @@ commit:
 push: build commit
 	@git push github --all
 build:
-	@uglifyjs pimple.js -o pimple.min.js --source-map pimple.js.map --comments
+	@node_modules/.bin/uglifyjs pimple.js -o pimple.min.js --source-map pimple.js.map --comments
 .PHONY:test
