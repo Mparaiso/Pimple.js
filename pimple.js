@@ -76,7 +76,6 @@
             }
         },
         /**
-         *
          * @param {Function}definition
          * @param {Object} context
          * @returns {Function}
