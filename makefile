@@ -1,5 +1,5 @@
 test:
-	@mocha
+	@mocha -R list
 	@make commit
 install:
 	@npm install
