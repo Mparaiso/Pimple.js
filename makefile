@@ -7,7 +7,7 @@ commit:
 	@git add .
 	@git commit -am"auto-commit `date`" || :
 push: build commit
-	@git push github --all --tags
+	@git push github --all
 build:
 	@node_modules/.bin/uglifyjs pimple.js -o pimple.min.js --source-map pimple.js.map --comments
 .PHONY:test build
