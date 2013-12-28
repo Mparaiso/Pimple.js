@@ -20,8 +20,9 @@ contact: mparaiso@free.Fr
 + AMD compatible
 
 #### change log
-0.0.3 api changed for shared,protected and extended services , see README.md
-0.0.2 register method added
+
+- 0.0.3 api changed for shared,protected and extended services , see README.md
+- 0.0.2 register method added
 
 ## USAGE
 
