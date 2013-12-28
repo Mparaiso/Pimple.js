@@ -47,7 +47,7 @@ pimple.set('database',function (pimple /* pimple is injected in the function */ 
     return new Database(pimple.get('connection_string'));
 });
 
-// on recent browsers , you can use accessors ( IE9+,CHROME,FIREFOX,OPERA,SAFARI )
+// in recent browsers , you can use accessors ( IE9+,CHROME,FIREFOX,OPERA,SAFARI )
 pimple.set('database',function (pimple /* pimple is injected in the function */ ) {
     return new Database(pimple.connection_string);
 });
@@ -74,11 +74,11 @@ pimple['service']
 the service callback with be exectuted only once and the result will be shared for each call
 ```javascript
 // Pimple.share(callback)
-pimple.set('car',
-    pimple.share(function (pimple /* pimple is injected in the function */ ) {
+pimple.set('car',pimple.share(function (pimple) {
         return {
           engine:"x",
-          color:"red"
+          color:"red",
+          brand:pimple.get('brand')
         }
     )
 });
@@ -89,7 +89,7 @@ console.log(pimple.get("car").color) // returns green
 #### define a protected service
 
 ```javascript
-//Pimple.protect(callback,context)
+//Pimple.protect(function)
 pimple.set('sayHi',pimple.protect(function(){
       return alert('Hi');
 }));

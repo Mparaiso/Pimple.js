@@ -2,6 +2,9 @@
     "name":"pimple",
     "description":"Dependency Injection container for javascript",
     "version":"0.0.3",
+    "scripts":{
+        "test":"mocha -R list"
+    },
     "author":{
         "name":"mparaiso",
         "email":"mparaiso@online.fr"
