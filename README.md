@@ -29,10 +29,17 @@ contact: mparaiso@free.Fr
 ### installation 
 
 in a html file
+
 ```html
-<script type='text/javascript' src='path/to/pimple/pimple.js'>
+  <script type='text/javascript' src='path/to/pimple/pimple.js'></script>
 ```
 
+with nodejs
+
+```javascript
+  //npm install -g pimple
+  var pimple = require('pimple');
+```
 ### definition
 
 ```javascript
