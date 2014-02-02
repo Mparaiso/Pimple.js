@@ -42,7 +42,7 @@
             return this._definitions[key];
         },
         /**
-         *
+         * register a new service
          * @param {String} key
          * @param {Object|Function} definition
          */
@@ -57,9 +57,10 @@
                     enumerable:true
                 });
             }
+            return this
         },
         /**
-         *
+         * get raw service definition
          * @param {String} key
          * @returns {*}
          */
