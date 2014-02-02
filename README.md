@@ -3,8 +3,7 @@ PIMPLE.JS
 
 [![NPM](https://nodei.co/npm/pimple.png?downloads=true)](https://nodei.co/npm/pimple/)
 
-
-[![Build Status](https://travis-ci.org/Mparaiso/Pimple.js.png?branch=0.0.3)](https://travis-ci.org/Mparaiso/Pimple.js)
+[![Build Status](https://travis-ci.org/Mparaiso/Pimple.js.png?branch=master)](https://travis-ci.org/Mparaiso/Pimple.js)
 
 
 #### Pimple is a Dependency injection container for javascript , compatible with all javascript enabled browsers.
