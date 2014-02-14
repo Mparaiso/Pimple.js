@@ -6,6 +6,7 @@
   @version 0.0.3
 */
 (function(){
+    "use strict";
     var self=this;
     /**
      * Pimple dependency injection container

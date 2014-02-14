@@ -5,7 +5,7 @@ install:
 	@npm install
 commit:
 	@git add .
-	@git commit -am"auto-commit `date`" || :
+	@git commit -am"$(message) `date`" || :
 push: build commit
 	@git push --all
 build:
