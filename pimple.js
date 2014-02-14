@@ -6,6 +6,7 @@
   @version 0.0.3
 */
 (function(){
+    var self=this;
     /**
      * Pimple dependency injection container
      * @param {Object} object
@@ -21,6 +22,9 @@
      * @constructor
      */
     this.Pimple = function(definitions){
+        if(!(this instanceof self.Pimple)){
+            return new self.Pimple(definitions);
+        }
         this._definitions={};
         for(var key in definitions){
             if(definitions.hasOwnProperty(key)){
