@@ -49,7 +49,8 @@
         /**
          * register a new service
          * @param {String} key
-         * @param {Object|Function} definition
+         * @param {Object|Function} 
+         * @return {Pimple} container
          */
         set:function(key,definition){
             this._definitions[key]=definition;
