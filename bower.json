@@ -1,0 +1,25 @@
+{
+  "name": "Pimple.js",
+  "main": "pimple.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Mparaiso/Pimple.js",
+  "authors": [
+    "mparaiso <aikah@free.fr>"
+  ],
+  "description": "Dependency Injection container for javascript",
+  "keywords": [
+    "dependency",
+    "injection",
+    "container",
+    "ioc",
+    "pimple"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
