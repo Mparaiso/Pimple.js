@@ -1,126 +1,118 @@
+/*jslint eqeq:true,node:true,es5:true,white:true,plusplus:true,nomen:true,unparam:true,devel:true,regexp:true */
 /*global String,Boolean,Object,Function */
-/*
-  Pimple dependency injection container 
-  @copyright 2011 M.PARAISO <mparaiso@online.fr>
-  @license LGPL
-  @version 0.0.3
-*/
+/**
+ *  Pimple dependency injection container 
+ *  @copyright 2011 M.PARAISO <mparaiso@online.fr>
+ *  @license LGPL
+ *  @version 2.0.0
+ */
 (function(){
     "use strict";
-    var self=this;
+    var self,_isFunction,reservedProperties;
+    self=this;
     /**
      * Pimple dependency injection container
      * @param {Object} object
      * @return {Boolean}
      */
-    var _isFunction=function(object){
+    _isFunction=function(object){
         return object instanceof Function;
     };
-    var reservedProperties=['get','set','factory','raw','protect','share','toString','constructor'];
+    reservedProperties=['get','set','factory','raw','protect','share','toString','constructor'];
+
     /**
      *
      * @param {Object} definitions
      * @constructor
      */
-    this.Pimple = function(definitions){
-        if(!(this instanceof self.Pimple)){
-            return new self.Pimple(definitions);
+    this.Pimple =function Pimple(services){
+        if(!(this instanceof Pimple)){
+            return new Pimple(services);
         }
         this._definitions={};
-        for(var key in definitions){
-            if(definitions.hasOwnProperty(key)){
-                this.set(key,definitions[key]);
-            }
+        this._raw={};
+        if(services){
+            Object.keys(services).forEach(function(service){
+                this.set(service,services[service]);
+            },this);
         }
     };
-    this.Pimple.prototype={
-        /**
-         *
-         * @param {String} key
-         * @returns {*}
-         */
-        get:function(key){
-            if(this._definitions[key]===undefined)return;
-            if(_isFunction(this._definitions[key])){
-                return this._definitions[key].call(this,this);
-            }
-            return this._definitions[key];
-        },
-        /**
-         * register a new service
-         * @param {String} key
-         * @param {Object|Function} 
-         * @return {Pimple} container
-         */
-        set:function(key,definition){
-            this._definitions[key]=definition;
-            if(reservedProperties.indexOf(key)===-1){
-                Object.defineProperty(this,key,{
-                    get:function(){
-                        return this.get(key);
-                    },
-                    configurable:true,
-                    enumerable:true
-                });
-            }
-            return this
-        },
-        /**
-         * get raw service definition
-         * @param {String} key
-         * @returns {*}
-         */
-        raw:function(key){
-            return this._definitions[key];
-        },
-        /**
-         *
-         * @param {Object,Function} definition
-         * @return {Function}
-         */
-        share:function(definition){
-            var cached,self=this;
-            return function(){
-                if(cached===undefined){
-                    cached=definition.call(self,self);
+    /** define a service */ 
+    this.Pimple.prototype.set=function(name,service){
+        var s;
+        this._raw[name]=service;
+        if(service instanceof Function){
+            s = (function(){
+                var cached;
+                return function(pimple){
+                    if(cached === undefined){
+                        cached = service(pimple);
+                    }
+                    return cached;
+                };
+            }());
+        }else{
+            s=service;
+        }
+        this._definitions[name]=s;
+        try{
+            Object.defineProperty(this,name,{
+                get:function(){
+                    return this.get(name);
                 }
-                return cached;
-            }
-        },
-        /**
-         * @param {Function}definition
-         * @param {Object} context
-         * @returns {Function}
-         */
-        protect:function(definition,context){
-            context=context||this;
-            return function(){
-                return definition.bind(context);
-            }
-        },
-        /**
-         * @param {String} key
-         * @param {Function} definition
-         * @returns {Function}
-         */
-        extend:function(key,definition){
-            return definition.bind(this,this.get(key),this);
-        },
-        /**
-         * use a function to register a set of definitions
-         * @param {Function} definitionProvider
-         * @returns {*}
-         */
-        register:function(definitionProvider){
-            return definitionProvider(this);
+            });
+        }catch(e){}
+        return this;
+    };
+    this.Pimple.prototype.factory=function(name,function_){
+        var self=this;
+        this._raw[name]=function_;
+        this._definitions[name]=function_;
+    };
+    /** get a service instance */
+    this.Pimple.prototype.get=function(name){
+        if (this._definitions[name] instanceof Function){
+            return this._definitions[name](this);
+        }
+        return this._definitions[name];
+    };
+    this.Pimple.prototype.protect=function(service){
+        return function(){
+            return service;
+        };
+    };
+    /** extend a service */
+    this.Pimple.prototype.extend=function(serviceName,service){
+        var def,self=this;
+        if(this._definitions[serviceName]!==undefined){
+            def=self._definitions[serviceName];
+            return function(container){
+                if(def instanceof Function){
+                    def=def(container);
+                }
+                return service(def,container);
+            };
         }
     };
+    /** get a service raw definition */
+    this.Pimple.prototype.raw=function(name){
+        return this._raw[name]; 
+    };
+    /** register a service provider */
+    this.Pimple.prototype.register=function(provider){
+        if(provider.register instanceof Function){
+            provider.register(this);
+        }else if(provider instanceof Function){
+            provider(this);
+        }
+        return this;
+    };
+    //AMD
     if(this.define instanceof Function){
-        var self=this;
-        this.define('pimple',[],function(){return self.Pimple});
+        this.define('pimple',[],function(){return self.Pimple;});
     }
     //CommonJS
     if(module && module.exports){
         module.exports = this.Pimple;
     }
-}).apply(this);
+}).call(this);
