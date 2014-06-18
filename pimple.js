@@ -64,6 +64,7 @@
         }catch(e){}
         return this;
     };
+    /** register a factory */
     this.Pimple.prototype.factory=function(name,function_){
         var self=this;
         this._raw[name]=function_;
@@ -76,6 +77,7 @@
         }
         return this._definitions[name];
     };
+    /* register a protected function */
     this.Pimple.prototype.protect=function(service){
         return function(){
             return service;

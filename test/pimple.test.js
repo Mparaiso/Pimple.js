@@ -24,7 +24,9 @@ describe('Pimple',function(){
         assert.ok(container.raw('paramGetter2') instanceof Function);
     });
     it('should support factories',function(){
-        container.factory('f',function(){
+        container.set('i','foo');
+        container.factory('f',function(container){
+            assert.equal(container.get('i'),'foo');
             return new Date;
         })
         assert.ok(container.get('f')!==container.get('f'));

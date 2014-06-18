@@ -120,8 +120,8 @@ Then, the provider can be easily registered on a Container:
 
 ####Defining Factory Services
 
-By default, each time you get a service, Pimple returns the same instance of it. If you want a different instance to be returned for all calls, wrap your anonymous function with the factory() method
+    By default, each time you get a service, Pimple returns the same instance of it. If you want a different instance to be returned for all calls, wrap your anonymous function with the factory() method
 
-    container.set('session',container.factory(function (c) {
-        return new Session(c.session_storage);
-    }));
+    container.factory('session',function (c) {
+            return new Session(c.session_storage);
+    });
