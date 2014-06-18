@@ -5,6 +5,7 @@ PIMPLE.JS
 
 [![Build Status](https://travis-ci.org/Mparaiso/Pimple.js.png?branch=master)](https://travis-ci.org/Mparaiso/Pimple.js)
 
+###WARNING : this is the documentation for branch 2.X
 
 #### Pimple is a Dependency injection container for javascript , compatible with all javascript enabled browsers.
 see : http://en.wikipedia.org/wiki/Dependency_injection
