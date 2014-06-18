@@ -1,7 +1,7 @@
 {
     "name":"pimple",
     "description":"Dependency Injection container for javascript",
-    "version":"2.0.2@dev",
+    "version":"2.0.3@dev",
     "scripts":{
         "test":"mocha -R list"
     },

@@ -18,7 +18,7 @@
     _isFunction=function(object){
         return object instanceof Function;
     };
-    reservedProperties=['get','set','factory','raw','protect','share','toString','constructor'];
+    reservedProperties=['get','set','factory','raw','protect','share','toString','constructor','prototype'];
 
     /**
      *
@@ -56,11 +56,13 @@
         }
         this._definitions[name]=s;
         try{
+            if(reservedProperties.indexOf(name)===-1){
             Object.defineProperty(this,name,{
                 get:function(){
                     return this.get(name);
                 }
             });
+            }
         }catch(e){}
         return this;
     };
@@ -69,6 +71,15 @@
         var self=this;
         this._raw[name]=function_;
         this._definitions[name]=function_;
+        try{
+            if(reservedProperties.indexOf(name)===-1){
+                Object.defineProperty(this,name,{
+                    get:function(){
+                        return this.get(name);
+                    }
+                });
+            }
+        }catch(e){}
     };
     /** get a service instance */
     this.Pimple.prototype.get=function(name){

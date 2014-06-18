@@ -30,6 +30,7 @@ describe('Pimple',function(){
             return new Date;
         })
         assert.ok(container.get('f')!==container.get('f'));
+        assert.ok(container.f instanceof Date);
     });
     it('should support shared services',function(){
         container.set("shared",function(){
