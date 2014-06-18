@@ -4,9 +4,11 @@ test:
 install:
 	@npm install
 commit:
+	@echo "committing !"
 	@git add .
 	@git commit -am"$(message) `date`" || :
 push: build commit
+	@echo "pushing !"
 	@git push 
 build:
 	@echo "building !"
