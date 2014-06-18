@@ -20,122 +20,108 @@ contact: mparaiso@free.Fr
 + AMD compatible
 
 #### change log
+- 2.0.0 API in sync with PHP version branch 2.X please check : https://github.com/fabpot/Pimple for changes
 - 0.0.4 pimple can now be instanciated without new
 - 0.0.3 api changed for shared,protected and extended services , see README.md
 - 0.0.2 register method added
 
-## USAGE
+###Usage
 
-### installation 
+Creating a container is a matter of instating the Pimple class
 
-in a html file
 
-```html
-  <script type='text/javascript' src='path/to/pimple/pimple.js'></script>
-```
+    var container = new Pimple();
 
-with nodejs
 
-```javascript
-  //npm install -g pimple
-  var pimple = require('pimple');
-```
-### definition
+As many other dependency injection containers, Pimple is able to manage two different kind of data: services and parameters.
 
-```javascript
-var pimple = new Pimple()
-```
-or initialise the container with values
+####Defining Parameters
 
-```javascript
-var pimple = new Pimple({'greet':function(){return "hi"},'color':'green'})
-```
 
-#### define a service
-you define a service with an anonymous function
+    // define some parameters
+    container.set('cookie_name','SESSION_ID');
+    $container.set('session_storage_class','SessionStorage');
 
-```javascript
-// Pimple.set(name,callback)
-// given a Database object
-pimple.set('database',function (pimple /* pimple is injected in the function */ ) {
-    return new Database(pimple.get('connection_string'));
-});
+####Defining Services
 
-// in recent browsers , you can use accessors ( IE9+,CHROME,FIREFOX,OPERA,SAFARI )
-pimple.set('database',function (pimple /* pimple is injected in the function */ ) {
-    return new Database(pimple.connection_string);
-});
-```
-### define a paramater
-```javascript
-// just set a scalar value
-pimple.set('color',"green");
-```
+A service is an object that does something as part of a larger system. Examples of services: Database connection, templating engine, mailer. Almost any object could be a service.
 
-#### query for a service
+Services are defined by anonymous functions that return an instance of an object
 
-since the service is wrapped into a function , it will be lazy-loaded , allowing to save computer CPU.
+    // define some services
+    container.set('session_storage',function (c) {
+        return new c.session_storage_class(c.cookie_name);
+    });
+    
+    container.set('session',function (c) {
+        return new Session(c.session_storage);
+    });
 
-```javascript
-pimple.get('service')
-//or on recent browsers support defineProperty  ( IE9+,CHROME,FIREFOX,OPERA,SAFARI )
-pimple.service
-pimple['service']
-```
+Notice that the anonymous function has access to the current container instance, allowing references to other services or parameters.
 
-#### define a shared service 
+As objects are only created when you get them, the order of the definitions does not matter, and there is no performance penalty.
 
-the service callback with be exectuted only once and the result will be shared for each call
-```javascript
-// Pimple.share(callback)
-pimple.set('car',pimple.share(function (pimple) {
-        return {
-          engine:"x",
-          color:"red",
-          brand:pimple.get('brand')
+Using the defined services is also very easy
+
+    // get the session object in browsers that support property descriptors
+    var session = container.session;
+    //or in old browsers
+    session = container.get('session');
+    
+    // the above call is roughly equivalent to the following code:
+    // storage = new SessionStorage('SESSION_ID');
+    // session = new Session($storage);
+
+####Protecting Parameters
+
+Because Pimple sees anonymous functions as service definitions, you need to wrap anonymous functions with the protect() method to store them as parameter
+
+    container.set('random',container.protect(function () { return Math.random(); }));
+
+####Modifying services after creation
+
+In some cases you may want to modify a service definition after it has been defined. You can use the extend() method to define additional code to be run on your service just after it is created
+
+    container.set('mail',function (c) {
+        return new \Mail();
+    });
+
+    container.extend('mail', function(mail, c) {
+        mail.setFrom(c.mail.default_from);
+        return mail;
+    });
+
+The first argument is the name of the object, the second is a function that gets access to the object instance and the container.
+
+Fetching the service creation function
+
+When you access an object, Pimple automatically calls the anonymous function that you defined, which creates the service object for you. If you want to get raw access to this function, you can use the raw() method
+
+    container.set('session', function (c) {
+        return new Session(c.session_storage);
+    });
+
+    var sessionFunction = container.raw('session');
+
+####Extending a Container
+
+If you use the same libraries over and over, you might want to reuse some services from one project to the other; package your services into a provider;
+
+    var provider = {
+        register:function(container){
+            // register some services and parameters
+            // on pimple
         }
-    )
-});
-var car = pimple.get('car'); // or car = pimple.car on recent browsers supporting accessors
-car.color = 'green'
-console.log(pimple.get("car").color) // returns green
-```
-#### define a protected service
+    }
 
-```javascript
-//Pimple.protect(function)
-pimple.set('sayHi',pimple.protect(function(){
-      return alert('Hi');
-}));
-pimple.get('sayHi')(); // alerts Hi
-```
+Then, the provider can be easily registered on a Container:
 
-#### extends a defined service
+    container.register(provider);
 
-Pimple.extend returns a service definition ( a callback ).
+####Defining Factory Services
 
-```javascript
-// define a service ajax_service
-pimple.set("ajax",function(pimple){
-  return new Ajax({method:'GET'});
-});
-//Pimple.extend(existing_service_name,callback)
-pimple.set('ajax',pimple.extend('ajax',function(ajax,pimple){
-  ajax.method = "PUT";
-  return ajax;
-}));
-```
+By default, each time you get a service, Pimple returns the same instance of it. If you want a different instance to be returned for all calls, wrap your anonymous function with the factory() method
 
-#### get the service raw definition
-
-Pimple.raw returns the original service defintion ( a scalar or a callback )
-
-```javascript
-pimple.set('service',function(pimple){
-  new Service();
-})
-//Pimple.raw(service_name)
-pimple.raw('service') // return the  service callback definition
-```
-
-
+    container.set('session',container.factory(function (c) {
+        return new Session(c.session_storage);
+    }));
