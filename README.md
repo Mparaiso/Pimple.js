@@ -30,7 +30,7 @@ contact: mparaiso@free.Fr
 Creating a container is a matter of instating the Pimple class
 
 
-    var container = new Pimple();
+    var container = new Pimple({foo:'foo'});
 
 
 As many other dependency injection containers, Pimple is able to manage two different kind of data: services and parameters.
@@ -39,8 +39,7 @@ As many other dependency injection containers, Pimple is able to manage two diff
 
 
     // define some parameters
-    container.set('cookie_name','SESSION_ID');
-    $container.set('session_storage_class','SessionStorage');
+    container.set('bar','bar');
 
 ####Defining Services
 
@@ -49,13 +48,14 @@ A service is an object that does something as part of a larger system. Examples 
 Services are defined by anonymous functions that return an instance of an object
 
     // define some services
-    container.set('session_storage',function (c) {
-        return new c.session_storage_class(c.cookie_name);
+    var self=this;
+    container.set('baz',function (c) {
+        return {
+            foo:c.foo,
+            bar:c.bar
+        };
     });
     
-    container.set('session',function (c) {
-        return new Session(c.session_storage);
-    });
 
 Notice that the anonymous function has access to the current container instance, allowing references to other services or parameters.
 
@@ -64,19 +64,18 @@ As objects are only created when you get them, the order of the definitions does
 Using the defined services is also very easy
 
     // get the session object in browsers that support property descriptors
-    var session = container.session;
+    var baz = container.baz;
     //or in old browsers
-    session = container.get('session');
+    baz = container.get('baz');
     
-    // the above call is roughly equivalent to the following code:
-    // storage = new SessionStorage('SESSION_ID');
-    // session = new Session($storage);
 
 ####Protecting Parameters
 
 Because Pimple sees anonymous functions as service definitions, you need to wrap anonymous functions with the protect() method to store them as parameter
 
     container.set('random',container.protect(function () { return Math.random(); }));
+
+    var randomNumber = container.random();
 
 ####Modifying services after creation
 
