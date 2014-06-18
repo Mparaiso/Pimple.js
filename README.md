@@ -3,7 +3,7 @@ PIMPLE.JS
 
 [![NPM](https://nodei.co/npm/pimple.png?downloads=true)](https://nodei.co/npm/pimple/)
 
-[![Build Status](https://travis-ci.org/Mparaiso/Pimple.js.png?branch=master)](https://travis-ci.org/Mparaiso/Pimple.js)
+[![Build Status](https://travis-ci.org/Mparaiso/Pimple.js.png?branch=2.X)](https://travis-ci.org/Mparaiso/Pimple.js)
 
 ###WARNING : this is the documentation for branch 2.X, the API has been heavily refactored from version 1.X
 
