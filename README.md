@@ -1,6 +1,8 @@
 PIMPLE.JS
 =========
 
+version 2.0.3-alpha
+
 [![NPM](https://nodei.co/npm/pimple.png?downloads=true)](https://nodei.co/npm/pimple/)
 
 [![Build Status](https://travis-ci.org/Mparaiso/Pimple.js.png?branch=2.X)](https://travis-ci.org/Mparaiso/Pimple.js)
