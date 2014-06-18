@@ -7,7 +7,7 @@ commit:
 	@git add .
 	@git commit -am"$(message) `date`" || :
 push: build commit
-	@git push --all
+	@git push --master --tags
 build:
 	@node_modules/.bin/uglifyjs pimple.js -o pimple.min.js --source-map pimple.js.map --comments
 .PHONY:test build
