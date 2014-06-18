@@ -1,0 +1,199 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish',
+1 verbose cli   '--tag',
+1 verbose cli   '2.0.3-alpha' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.21
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . C:\Users\mark prades\AppData\Roaming\npm-cache\3a52ce78-.lock
+11 verbose tar pack [ 'c:\\tmp\\npm-776-1j7f_Dox\\1403104838780-0.9863220835104585\\tmp.tgz',
+11 verbose tar pack   '.' ]
+12 verbose tarball c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\tmp.tgz
+13 verbose folder .
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. C:\Users\mark prades\AppData\Roaming\npm-cache\1f1177db-tar.lock
+16 silly lockFile eb2f0dc6-38780-0-9863220835104585-tmp-tgz tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\tmp.tgz
+17 verbose lock tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\tmp.tgz C:\Users\mark prades\AppData\Roaming\npm-cache\eb2f0dc6-38780-0-9863220835104585-tmp-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile eb2f0dc6-38780-0-9863220835104585-tmp-tgz tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\tmp.tgz
+21 silly lockFile eb2f0dc6-38780-0-9863220835104585-tmp-tgz tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\tmp.tgz
+22 verbose tar unpack c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\tmp.tgz
+23 silly lockFile 64dedd18-38780-0-9863220835104585-package tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\package
+24 verbose lock tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\package C:\Users\mark prades\AppData\Roaming\npm-cache\64dedd18-38780-0-9863220835104585-package.lock
+25 silly lockFile eb2f0dc6-38780-0-9863220835104585-tmp-tgz tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\tmp.tgz
+26 verbose lock tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\tmp.tgz C:\Users\mark prades\AppData\Roaming\npm-cache\eb2f0dc6-38780-0-9863220835104585-tmp-tgz.lock
+27 silly gunzTarPerm modes [ '755', '644' ]
+28 silly gunzTarPerm extractEntry package.json
+29 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+30 silly gunzTarPerm extractEntry .npmignore
+31 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+32 silly gunzTarPerm extractEntry README.md
+33 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+34 silly gunzTarPerm extractEntry pimple.js
+35 silly gunzTarPerm modified mode [ 'pimple.js', 438, 420 ]
+36 silly gunzTarPerm extractEntry pimple.min.js
+37 silly gunzTarPerm modified mode [ 'pimple.min.js', 438, 420 ]
+38 silly gunzTarPerm extractEntry bower.json
+39 silly gunzTarPerm modified mode [ 'bower.json', 438, 420 ]
+40 silly gunzTarPerm extractEntry makefile
+41 silly gunzTarPerm modified mode [ 'makefile', 438, 420 ]
+42 silly gunzTarPerm extractEntry .travis.yml
+43 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+44 silly gunzTarPerm extractEntry pimple.js.map
+45 silly gunzTarPerm modified mode [ 'pimple.js.map', 438, 420 ]
+46 silly gunzTarPerm extractEntry test/pimple.test.js
+47 silly gunzTarPerm modified mode [ 'test/pimple.test.js', 438, 420 ]
+48 silly lockFile 64dedd18-38780-0-9863220835104585-package tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\package
+49 silly lockFile 64dedd18-38780-0-9863220835104585-package tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\package
+50 silly lockFile eb2f0dc6-38780-0-9863220835104585-tmp-tgz tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\tmp.tgz
+51 silly lockFile eb2f0dc6-38780-0-9863220835104585-tmp-tgz tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\tmp.tgz
+52 verbose tar pack [ 'C:\\Users\\mark prades\\AppData\\Roaming\\npm-cache\\pimple\\2.0.3-alpha\\package.tgz',
+52 verbose tar pack   'c:\\tmp\\npm-776-1j7f_Dox\\1403104838780-0.9863220835104585\\package' ]
+53 verbose tarball C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz
+54 verbose folder c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\package
+55 silly lockFile 64dedd18-38780-0-9863220835104585-package tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\package
+56 verbose lock tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\package C:\Users\mark prades\AppData\Roaming\npm-cache\64dedd18-38780-0-9863220835104585-package.lock
+57 silly lockFile f106a113-e-pimple-2-0-3-alpha-package-tgz tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz
+58 verbose lock tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz C:\Users\mark prades\AppData\Roaming\npm-cache\f106a113-e-pimple-2-0-3-alpha-package-tgz.lock
+59 silly lockFile 64dedd18-38780-0-9863220835104585-package tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\package
+60 silly lockFile 64dedd18-38780-0-9863220835104585-package tar://c:\tmp\npm-776-1j7f_Dox\1403104838780-0.9863220835104585\package
+61 silly lockFile f106a113-e-pimple-2-0-3-alpha-package-tgz tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz
+62 silly lockFile f106a113-e-pimple-2-0-3-alpha-package-tgz tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz
+63 silly lockFile ca299aef-cache-pimple-2-0-3-alpha-package C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package
+64 verbose lock C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package C:\Users\mark prades\AppData\Roaming\npm-cache\ca299aef-cache-pimple-2-0-3-alpha-package.lock
+65 silly lockFile ca299aef-cache-pimple-2-0-3-alpha-package C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package
+66 silly lockFile ca299aef-cache-pimple-2-0-3-alpha-package C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package
+67 verbose tar unpack C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz
+68 silly lockFile efc1827b-cache-pimple-2-0-3-alpha-package tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package
+69 verbose lock tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package C:\Users\mark prades\AppData\Roaming\npm-cache\efc1827b-cache-pimple-2-0-3-alpha-package.lock
+70 silly lockFile f106a113-e-pimple-2-0-3-alpha-package-tgz tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz
+71 verbose lock tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz C:\Users\mark prades\AppData\Roaming\npm-cache\f106a113-e-pimple-2-0-3-alpha-package-tgz.lock
+72 silly gunzTarPerm modes [ '755', '644' ]
+73 silly gunzTarPerm extractEntry package.json
+74 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+75 silly gunzTarPerm extractEntry .npmignore
+76 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+77 silly gunzTarPerm extractEntry README.md
+78 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+79 silly gunzTarPerm extractEntry pimple.js
+80 silly gunzTarPerm modified mode [ 'pimple.js', 438, 420 ]
+81 silly gunzTarPerm extractEntry pimple.min.js
+82 silly gunzTarPerm modified mode [ 'pimple.min.js', 438, 420 ]
+83 silly gunzTarPerm extractEntry .travis.yml
+84 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+85 silly gunzTarPerm extractEntry bower.json
+86 silly gunzTarPerm modified mode [ 'bower.json', 438, 420 ]
+87 silly gunzTarPerm extractEntry makefile
+88 silly gunzTarPerm modified mode [ 'makefile', 438, 420 ]
+89 silly gunzTarPerm extractEntry pimple.js.map
+90 silly gunzTarPerm modified mode [ 'pimple.js.map', 438, 420 ]
+91 silly gunzTarPerm extractEntry test/pimple.test.js
+92 silly gunzTarPerm modified mode [ 'test/pimple.test.js', 438, 420 ]
+93 silly lockFile efc1827b-cache-pimple-2-0-3-alpha-package tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package
+94 silly lockFile efc1827b-cache-pimple-2-0-3-alpha-package tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package
+95 silly lockFile f106a113-e-pimple-2-0-3-alpha-package-tgz tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz
+96 silly lockFile f106a113-e-pimple-2-0-3-alpha-package-tgz tar://C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz
+97 verbose chmod C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz 644
+98 silly chown skipping for windows C:\Users\mark prades\AppData\Roaming\npm-cache\pimple\2.0.3-alpha\package.tgz
+99 silly lockFile 3a52ce78- .
+100 silly lockFile 3a52ce78- .
+101 silly publish { name: 'pimple',
+101 silly publish   description: 'Dependency Injection container for javascript',
+101 silly publish   version: '2.0.3-alpha',
+101 silly publish   scripts: { test: 'mocha -R list' },
+101 silly publish   author: { name: 'mparaiso', email: 'mparaiso@online.fr' },
+101 silly publish   keywords: [ 'pimple', 'ioc', 'dependency injection' ],
+101 silly publish   devDependencies: { mocha: '*', 'uglify-js': '*' },
+101 silly publish   repository: { type: 'git', url: 'https://github.com/Mparaiso/Pimple.js' },
+101 silly publish   main: 'pimple.js',
+101 silly publish   engines: { node: '*' },
+101 silly publish   readme: 'PIMPLE.JS\r\n=========\r\n\r\nversion 2.0.3-alpha\r\n\r\n[![NPM](https://nodei.co/npm/pimple.png?downloads=true)](https://nodei.co/npm/pimple/)\r\n\r\n[![Build Status](https://travis-ci.org/Mparaiso/Pimple.js.png?branch=2.X)](https://travis-ci.org/Mparaiso/Pimple.js)\r\n\r\n###WARNING : this is the documentation for branch 2.X, the API has been heavily refactored from version 1.X\r\n\r\n#### Pimple is a Dependency injection container for javascript , compatible with all javascript enabled browsers.\r\nsee : http://en.wikipedia.org/wiki/Dependency_injection\r\n\r\nauthor M.Paraiso , inspired by Pimple by Fabien Potencier : https://github.com/fabpot/Pimple\r\n\r\ncontact: mparaiso@free.Fr\r\n\r\n#### status: beta\r\n\r\n#### features:\r\n+ AMD compatible\r\n\r\n#### change log\r\n- 2.0.0 API in sync with PHP version branch 2.X please check : https://github.com/fabpot/Pimple for changes\r\n- 0.0.4 pimple can now be instanciated without new\r\n- 0.0.3 api changed for shared,protected and extended services , see README.md\r\n- 0.0.2 register method added\r\n\r\n###Usage\r\n\r\nCreating a container is a matter of instating the Pimple class\r\n\r\n\r\n    var container = new Pimple({foo:\'foo\'});\r\n\r\n\r\nAs many other dependency injection containers, Pimple is able to manage two different kind of data: services and parameters.\r\n\r\n####Defining Parameters\r\n\r\n\r\n    // define some parameters\r\n    container.set(\'bar\',\'bar\');\r\n\r\n####Defining Services\r\n\r\nA service is an object that does something as part of a larger system. Examples of services: Database connection, templating engine, mailer. Almost any object could be a service.\r\n\r\nServices are defined by anonymous functions that return an instance of an object\r\n\r\n    // define some services\r\n    var self=this;\r\n    container.set(\'baz\',function (c) {\r\n        return {\r\n            foo:c.foo,\r\n            bar:c.bar\r\n        };\r\n    });\r\n    \r\n\r\nNotice that the anonymous function has access to the current container instance, allowing references to other services or parameters.\r\n\r\nAs objects are only created when you get them, the order of the definitions does not matter, and there is no performance penalty.\r\n\r\nUsing the defined services is also very easy\r\n\r\n    // get the session object in browsers that support property descriptors\r\n    var baz = container.baz;\r\n    //or in old browsers\r\n    baz = container.get(\'baz\');\r\n    \r\n\r\n####Protecting Parameters\r\n\r\nBecause Pimple sees anonymous functions as service definitions, you need to wrap anonymous functions with the protect() method to store them as parameter\r\n\r\n    container.set(\'random\',container.protect(function () { return Math.random(); }));\r\n\r\n    var randomNumber = container.random();\r\n\r\n####Modifying services after creation\r\n\r\nIn some cases you may want to modify a service definition after it has been defined. You can use the extend() method to define additional code to be run on your service just after it is created\r\n\r\n    container.set(\'mail\',function (c) {\r\n        return new \\Mail();\r\n    });\r\n\r\n    container.extend(\'mail\', function(mail, c) {\r\n        mail.setFrom(c.mail.default_from);\r\n        return mail;\r\n    });\r\n\r\nThe first argument is the name of the object, the second is a function that gets access to the object instance and the container.\r\n\r\nFetching the service creation function\r\n\r\nWhen you access an object, Pimple automatically calls the anonymous function that you defined, which creates the service object for you. If you want to get raw access to this function, you can use the raw() method\r\n\r\n    container.set(\'session\', function (c) {\r\n        return new Session(c.session_storage);\r\n    });\r\n\r\n    var sessionFunction = container.raw(\'session\');\r\n\r\n####Extending a Container\r\n\r\nIf you use the same libraries over and over, you might want to reuse some services from one project to the other; package your services into a provider;\r\n\r\n    var provider = {\r\n        register:function(container){\r\n            // register some services and parameters\r\n            // on pimple\r\n        }\r\n    }\r\n\r\nThen, the provider can be easily registered on a Container:\r\n\r\n    container.register(provider);\r\n\r\n####Defining Factory Services\r\n\r\n    By default, each time you get a service, Pimple returns the same instance of it. If you want a different instance to be returned for all calls, wrap your anonymous function with the factory() method\r\n\r\n    container.factory(\'session\',function (c) {\r\n            return new Session(c.session_storage);\r\n    });\r\n',
+101 silly publish   readmeFilename: 'README.md',
+101 silly publish   bugs: { url: 'https://github.com/Mparaiso/Pimple.js/issues' },
+101 silly publish   _id: 'pimple@2.0.3-alpha',
+101 silly publish   dist: { shasum: '0f16b647a88c57c51481a07d978e66f1c4adf754' },
+101 silly publish   _from: '.' }
+102 verbose url raw pimple
+103 verbose url resolving [ 'https://registry.npmjs.org/', './pimple' ]
+104 verbose url resolved https://registry.npmjs.org/pimple
+105 info trying registry request attempt 1 at 17:20:39
+106 http PUT https://registry.npmjs.org/pimple
+107 http 201 https://registry.npmjs.org/pimple
+108 verbose url raw pimple
+109 verbose url resolving [ 'https://registry.npmjs.org/', './pimple' ]
+110 verbose url resolved https://registry.npmjs.org/pimple
+111 info trying registry request attempt 1 at 17:20:40
+112 http GET https://registry.npmjs.org/pimple
+113 http 200 https://registry.npmjs.org/pimple
+114 verbose uploading [ 'pimple/-/pimple-2.0.3-alpha.tgz/-rev/33-98359b3d85b6e6b8309ed3275315134b',
+114 verbose uploading   'C:\\Users\\mark prades\\AppData\\Roaming\\npm-cache\\pimple\\2.0.3-alpha\\package.tgz' ]
+115 verbose url raw pimple/-/pimple-2.0.3-alpha.tgz/-rev/33-98359b3d85b6e6b8309ed3275315134b
+116 verbose url resolving [ 'https://registry.npmjs.org/',
+116 verbose url resolving   './pimple/-/pimple-2.0.3-alpha.tgz/-rev/33-98359b3d85b6e6b8309ed3275315134b' ]
+117 verbose url resolved https://registry.npmjs.org/pimple/-/pimple-2.0.3-alpha.tgz/-rev/33-98359b3d85b6e6b8309ed3275315134b
+118 info trying registry request attempt 1 at 17:20:40
+119 http PUT https://registry.npmjs.org/pimple/-/pimple-2.0.3-alpha.tgz/-rev/33-98359b3d85b6e6b8309ed3275315134b
+120 http 403 https://registry.npmjs.org/pimple/-/pimple-2.0.3-alpha.tgz/-rev/33-98359b3d85b6e6b8309ed3275315134b
+121 info trying registry request attempt 1 at 17:20:42
+122 http PUT https://registry.npmjs.org/pimple/-/pimple-2.0.3-alpha.tgz/-rev/33-98359b3d85b6e6b8309ed3275315134b
+123 http 400 https://registry.npmjs.org/pimple/-/pimple-2.0.3-alpha.tgz/-rev/33-98359b3d85b6e6b8309ed3275315134b
+124 verbose bad json <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+124 verbose bad json <html><head>
+124 verbose bad json <title>400 Bad Request</title>
+124 verbose bad json </head><body>
+124 verbose bad json <h1>Bad Request</h1>
+124 verbose bad json <p>Your browser sent a request that this server could not understand.<br />
+124 verbose bad json </p>
+124 verbose bad json </body></html>
+125 error registry error parsing json
+126 error publish Error uploading package
+127 error SyntaxError: Unexpected token <
+127 error <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+127 error <html><head>
+127 error <title>400 Bad Request</title>
+127 error </head><body>
+127 error <h1>Bad Request</h1>
+127 error <p>Your browser sent a request that this server could not understand.<br />
+127 error </p>
+127 error </body></html>
+127 error
+127 error     at Object.parse (native)
+127 error     at RegClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:238:23)
+127 error     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:129:22)
+127 error     at Request.EventEmitter.emit (events.js:98:17)
+127 error     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:873:14)
+127 error     at Request.EventEmitter.emit (events.js:117:20)
+127 error     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:824:12)
+127 error     at IncomingMessage.EventEmitter.emit (events.js:117:20)
+127 error     at _stream_readable.js:920:16
+127 error     at process._tickCallback (node.js:415:13)
+128 error If you need help, you may report this log at:
+128 error     <http://github.com/isaacs/npm/issues>
+128 error or email it to:
+128 error     <npm-@googlegroups.com>
+129 error System Windows_NT 6.1.7601
+130 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish" "--tag" "2.0.3-alpha"
+131 error cwd c:\development\categories\node\Pimple.js
+132 error node -v v0.10.21
+133 error npm -v 1.3.11
+134 error type unexpected_token
+135 verbose exit [ 1, true ]
