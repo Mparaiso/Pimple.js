@@ -129,7 +129,7 @@
         this.define('pimple',[],function(){return self.Pimple;});
     }
     //CommonJS
-    if(module && module.exports){
+    if(typeof exports !== 'undefined' && module && module.exports){
         module.exports = this.Pimple;
     }
 }).call(this);
