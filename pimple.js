@@ -83,6 +83,9 @@
     };
     /** get a service instance */
     this.Pimple.prototype.get=function(name){
+        if(this._definitions[name]===undefined){
+            throw new Error('Identifier "%s" is not defined.'.replace('%s', name));
+        }
         if (this._definitions[name] instanceof Function){
             return this._definitions[name](this);
         }
