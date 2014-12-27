@@ -84,7 +84,7 @@ Because Pimple sees anonymous functions as service definitions, you need to wrap
 In some cases you may want to modify a service definition after it has been defined. You can use the extend() method to define additional code to be run on your service just after it is created
 
     container.set('mail',function (c) {
-        return new \Mail();
+        return new Mail();
     });
 
     container.extend('mail', function(mail, c) {
