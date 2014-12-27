@@ -98,7 +98,7 @@
     this.Pimple.prototype.extend=function(serviceName,service){
         var def,self=this;
         if(this._definitions[serviceName]===undefined){
-            return this;
+            throw new Error('Identifier "%s" is not defined.'.replace('%s', serviceName));
         }
         def=self._definitions[serviceName];
         if(def instanceof Function){
