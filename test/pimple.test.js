@@ -51,17 +51,37 @@ describe('Pimple',function(){
         assert.ok(container.protected instanceof Function);
         assert.equal(container.protected(),5);
     });
+    it('should throw exception when trying to get service that not exists', function () {
+        try {
+            container.get('none');
+            assert.fail('Expected exception');
+        } catch (e) {
+            assert(e instanceof Error);
+            assert.equal(e.message, 'Identifier "none" is not defined.');
+        }
+    });
+    it('should throw exception when trying to extend definition that not exists', function () {
+        try {
+            container.extend('params', function (params, container) {
+                return params;
+            });
+            assert.fail('Expected exception');
+        } catch (e) {
+            assert(e instanceof Error);
+            assert.equal(e.message, 'Identifier "params" is not defined.');
+        }
+    });
     it(('should support definition extension'),function(){
         container.set('params',function(){
             return {
                 param1:1
             }
         });
-        container.set('params',container.extend('params',function(params,container){
+        container.extend('params',function(params,container){
             params.param2=2;
             container.set('param3',3);
             return params;
-        }));
+        });
         assert.equal(container.params.param2,2);
         assert.equal(container.params.param1,1);
         assert.equal(container.param3,3);

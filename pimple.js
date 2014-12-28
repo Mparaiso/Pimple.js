@@ -83,6 +83,9 @@
     };
     /** get a service instance */
     this.Pimple.prototype.get=function(name){
+        if(this._definitions[name]===undefined){
+            throw new Error('Identifier "%s" is not defined.'.replace('%s', name));
+        }
         if (this._definitions[name] instanceof Function){
             return this._definitions[name](this);
         }
@@ -97,15 +100,16 @@
     /** extend a service */
     this.Pimple.prototype.extend=function(serviceName,service){
         var def,self=this;
-        if(this._definitions[serviceName]!==undefined){
-            def=self._definitions[serviceName];
-            return function(container){
-                if(def instanceof Function){
-                    def=def(container);
-                }
-                return service(def,container);
-            };
+        if(this._definitions[serviceName]===undefined){
+            throw new Error('Identifier "%s" is not defined.'.replace('%s', serviceName));
         }
+        def=self._definitions[serviceName];
+        if(def instanceof Function){
+            def=def(this);
+        }
+        service(def,this);
+        
+	return this;
     };
     /** get a service raw definition */
     this.Pimple.prototype.raw=function(name){
@@ -125,7 +129,7 @@
         this.define('pimple',[],function(){return self.Pimple;});
     }
     //CommonJS
-    if(module && module.exports){
+    if(typeof exports !== 'undefined' && module && module.exports){
         module.exports = this.Pimple;
     }
 }).call(this);
